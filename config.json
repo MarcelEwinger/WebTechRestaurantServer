@@ -1,0 +1,8 @@
+{
+    "database": {
+        "host": "localhost",
+        "user": "postgres",
+        "password": "0303",
+        "db": "webtech21restaurant"
+    }
+}
