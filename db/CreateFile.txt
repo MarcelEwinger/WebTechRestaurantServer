@@ -20,25 +20,26 @@ categoryId int primary key not null,
 title varchar(255) NOT NULL,
 description varchar(255 ) NOT NULL
 );
-
-create table orderedItems (
-orderedItemsId int primary key,
-itemId int references items(itemId) on delete cascade,
-quantity int NOT NULL,
-status varchar(255) NOT NULL
-orderId int references orders (orderId) on delete cascade,
-);
-
 create table orders (
-orderId int Not null AUTO_INCREMENT PRIMARY KEY,
+orderId int NOT NULL  PRIMARY KEY,
 status varchar(255) NOT NULL,
 orderDate date NOT NULL,
 lableId int NOT NULL,
 paymentPreference varchar(255) NOT NULL,
 paymentToken varchar(255) NOT NULL,
-totalAmount decimal(10,2) NOT NULL,
-
+totalAmount decimal(10,2) NOT NULL
 );
+
+create table orderedItems (
+orderedItemsId int primary key,
+itemId int references items(itemId) on delete cascade,
+quantity int NOT NULL,
+status varchar(255) NOT NULL,
+orderId int references orders (orderId) on delete cascade
+	
+);
+
+
  
 create table item_hasAllergens (
 itemId int references items (itemId) on delete cascade,
